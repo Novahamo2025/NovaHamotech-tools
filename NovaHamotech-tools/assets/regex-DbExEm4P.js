@@ -1,0 +1,1 @@
+self.onmessage=e=>{try{const a=new RegExp(e.data.pattern,e.data.flags.includes("g")?e.data.flags:e.data.flags+"g"),t=[];let s;for(;(s=a.exec(e.data.text))&&t.length<1e3;)t.push({match:s[0],index:s.index,groups:s.slice(1)}),s[0]||a.lastIndex++;self.postMessage({result:t})}catch(a){self.postMessage({error:a.message})}};
